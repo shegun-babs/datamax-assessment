@@ -6,6 +6,7 @@ namespace App\Domain\Book\Controllers;
 
 use App\Domain\Book\Actions\BookValidation;
 use App\Domain\Book\Models\Book;
+use App\Domain\Book\Traits\BookValidationRules;
 use App\Domain\Book\Transformers\BookCollectionTransformer;
 use App\Domain\Book\Transformers\BookTransformer;
 use Illuminate\Http\JsonResponse;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 
 class BookController
 {
+    use BookValidationRules;
 
     public function index()//: JsonResponse
     {
@@ -29,10 +31,10 @@ class BookController
     }
 
 
-    public function create(Request $request): JsonResponse
+    public function store(Request $request): JsonResponse
     {
         $bookValidation = BookValidation::init();
-        $validator = Validator::make($request->all(), $bookValidation->rules());
+        $validator = Validator::make($request->all(), $this->rulesForStore());
 
         if ($validator->fails())
         {
@@ -60,10 +62,16 @@ class BookController
     }
 
 
-    public function update(){}
+    public function show($id){}
 
 
-    public function delete(Request $request, $id)
+    public function update(Request $request, $id){
+        $formData = $request->all();
+        $validator = Validator::make($request->all(), $this->rulesForUpdate());
+    }
+
+
+    public function destroy($id)
     {
         $book = Book::findOrFail($id);
         $bookName = $book->name;

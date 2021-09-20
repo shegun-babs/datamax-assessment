@@ -1,5 +1,6 @@
 <div>
     {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
+
         <form wire:submit.prevent="editRecord" class="space-y-8 divide-y divide-gray-200 max-w-2xl mb-6 relative pb-4 pr-4">
             <div class="space-y-8 divide-y divide-gray-200">
 

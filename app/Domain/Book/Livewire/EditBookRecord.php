@@ -20,20 +20,25 @@ class EditBookRecord extends Component
     public function editRecord()
     {
         $validated = $this->validate($this->rulesForUpdate());
-        //dd(route('books.update', ['book' => $this->book_id]), $validated);
         $response = Http::patch(
             route('books.update', ['book' => $this->book_id]),
             $validated
         );
+
         flash()->overlay($response->json()["message"], "Book updated");
         return redirect()->route('home');
     }
 
 
-    public function mount($book_id): void
+    public function mount($book_id)
     {
         $this->book_id = $book_id;
         $response = Http::get(route('books.show', ['book' => $this->book_id]));
+
+        if ($response->json()["status_code"] === 404)
+        {
+            return redirect()->route('home');
+        }
         $this->assignDataToVars($response->json()["data"]);
     }
 

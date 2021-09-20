@@ -8,16 +8,16 @@ use Livewire\Component;
 class BookRecord extends Component
 {
 
-
     public function deleteBook($book_id)
     {
-        //dd($book_id);
         $response = Http::delete(route('books.destroy', ['book' => $book_id]));
-        //dd($response->json()["status_code"]);
-        if ( $response->json()["status_code"] === 204 ){
+
+        if ( $response->json()["status_code"] === 204 )
+        {
             flash()->overlay($response->json()["message"], "")->livewire($this);
             return;
         }
+
         flash()->overlay($response->json()["message"], "")->livewire($this);
     }
 

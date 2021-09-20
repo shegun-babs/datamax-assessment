@@ -1,22 +1,9 @@
 <?php
 
-use App\Domain\Book\DTOs\BookData;
-use App\Domain\Book\DTOs\BookDataCollection;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use App\Domain\Book\Livewire\BookRecord;
+use App\Domain\Book\Livewire\EditBookRecord;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/books');
+Route::get('/books', BookRecord::class)->name('home');
+Route::get('books/{book_id}/edit', EditBookRecord::class)->name('book.edit');

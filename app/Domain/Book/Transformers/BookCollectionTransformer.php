@@ -18,6 +18,10 @@ class BookCollectionTransformer implements TransformerContract
     {
         $returnArray = [];
 
+        if ( count($this->books) === 0 ) {
+            return $returnArray;
+        }
+
         foreach ($this->books as $book) {
             $returnArray[] = [
                 "id" => $book->id,

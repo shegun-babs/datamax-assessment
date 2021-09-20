@@ -11,6 +11,8 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.6",
+        "mattlibera/livewire-flash": "^0.5.1",
         "spatie/data-transfer-object": "^2.8"
     },
     "require-dev": {

@@ -3,7 +3,7 @@
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg relative">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-100 border-none border-t border-l border-r">
                             <tr>
@@ -56,22 +56,22 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
                                     <a href="{{ route('book.edit', ['book_id' => $book['id']]) }}" class="border border-blue-700 rounded px-4 py-1 text-blue-600 hover:text-white hover:bg-blue-700">Edit</a>
-                                    <a href="#" class="border border-red-700 rounded px-4 py-1 text-red-600 hover:text-white hover:bg-red-700">Delete</a>
+                                    <button
+                                        onclick="confirm('Are you sure to delete book?') || event.stopImmediatePropagation()"
+                                        wire:click.prevent="deleteBook({{$book['id']}})" href="#"
+                                        type="button"
+                                        class="border border-red-700 rounded px-4 py-1 text-red-600 hover:text-white hover:bg-red-700">
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
 
                             @endforeach
                             </tbody>
                         </table>
+                        <x-livewire-loading wire:target="deleteBook" />
                     </div>
                 </div>
             </div>
         </div>
-    <x-modals.dialog-modal max-width="sm">
-        <x-slot name="title">Delete Book</x-slot>
-        <x-slot name="content">
-            Are you sure you want to delete ?
-        </x-slot>
-        <x-slot name="footer"></x-slot>
-    </x-modals.dialog-modal>
 </div>

@@ -78,7 +78,7 @@
                                 Release date
                             </x-form.label>
                             <div class="mt-1">
-                                <x-date-picker wire:model.lazy="release_date" />
+                                <x-date-picker wire:model.lazy="release_date" default="{{ $release_date }}" />
                                 <x-form.input-error for="release_date" />
                             </div>
                         </div>

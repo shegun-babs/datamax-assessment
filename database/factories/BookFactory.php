@@ -22,12 +22,12 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'isbn' => (string) $this->faker->numberBetween(12345, 99999),
+            'name' => $this->faker->realText(20),
+            'isbn' => (string) $this->faker->isbn13(),
             'authors' => $this->faker->name() . ", " . $this->faker->name(),
             'country' => $this->faker->country(),
             'number_of_pages' => $this->faker->randomNumber(3),
-            'publisher' => $this->faker->firstName,
+            'publisher' => $this->faker->randomElement(['Wrox', "O'Reily", 'Packt', 'Wrox', 'Manning', 'Apress']),
             'release_date' => $this->faker->date(),
         ];
     }

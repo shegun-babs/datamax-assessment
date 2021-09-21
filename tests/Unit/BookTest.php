@@ -17,8 +17,9 @@ it ('can read/fetch books', function(){
     Book::factory(20)->create();
 
     $response = $this->getJson('/api/v1/books');
-    $response->assertStatus(200)->assertJson(["status" => "success"]);
-    $response->assertJson(
+    $response->assertStatus(200)
+        ->assertJson(["status" => "success"])
+        ->assertJson(
         fn (AssertableJson $json) => $json->has('data')->has('data', 20)->etc()
     );
 });
@@ -53,8 +54,9 @@ it('can fetch a book', function (){
 it('can fetch 10 books', function (){
     Book::factory(20)->create();
     $response = $this->getJson("/api/v1/books?limit=10");
-    $response->assertStatus(200)->assertJson(["status" => "success"]);
-    $response->assertJson(
+    $response->assertStatus(200)
+        ->assertJson(["status" => "success"])
+        ->assertJson(
         fn (AssertableJson $json) => $json->has('data')->has('data', 10)->etc()
     );
 });

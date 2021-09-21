@@ -4,7 +4,7 @@
 namespace App\Domain\Book\Controllers;
 
 
-use App\Domain\Book\Actions\ResponseHelper;
+use App\Domain\Book\Helpers\ResponseHelper;
 use App\Domain\Book\Models\Book;
 use App\Domain\Book\Traits\BookValidationRules;
 use App\Domain\Book\Transformers\BookCollectionTransformer;
@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Validator;
 class  BookController
 {
     use BookValidationRules;
+
 
     public function index(Request $request, ResponseHelper $responseHelper): JsonResponse
     {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Domain\Book\Actions;
+namespace App\Domain\Book\Helpers;
 
 
 interface ResponseHelperInterface

@@ -31,6 +31,6 @@ return [
     ],
 
     'misc' => [
-        'fire_n_ice_api_url' => env('FICE_API_URL'),
+        'fire_n_ice_api_url' => env('FICE_API_URL', 'https://www.anapioficeandfire.com/api/books'),
     ]
 ];

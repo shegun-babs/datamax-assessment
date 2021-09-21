@@ -2,7 +2,7 @@
 
 use Illuminate\Testing\Fluent\AssertableJson;
 
-it('it sees external-books api url', function() {
+it('sees external-books api url', function() {
     $bookName = "A Game of Thrones";
     $response = $this->get("/api/external-books?{$bookName}");
     $response->assertStatus(200)

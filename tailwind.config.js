@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     purge: [
-        './views/**/*.blade.php',
+        './app/views/**/*.blade.php',
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',

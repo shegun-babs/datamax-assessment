@@ -5,7 +5,8 @@ This app requires `PHP8.0` and `MySQL >= 5.7`
 ## Environment variables (.env)
 
 Make a copy of `.env.example` for the application `.env` file
-`.env.example` already contains the Ice And Fire API url
+
+The `.env.example` already contains the Ice And Fire API url
 
 ## Migrations
 
@@ -19,6 +20,7 @@ Run `php artisan db:seed` to create test data in the tables
 ## Code References
 
 All code references are located in `app/Domain` and views are located in `app/views`
+
 Laravel Livewire is used for the frontend views
 
 ## Exception handler

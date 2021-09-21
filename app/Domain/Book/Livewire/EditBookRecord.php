@@ -2,11 +2,8 @@
 
 namespace App\Domain\Book\Livewire;
 
-use App\Domain\Book\Models\Book;
 use App\Domain\Book\Traits\BookValidationRules;
 use App\Domain\Book\Traits\BookVariables;
-use App\Domain\Book\Traits\ResetValidationError;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 

@@ -4,6 +4,7 @@ namespace App\Domain\Book\Models;
 
 use App\Domain\Book\Casts\ArrayValueCast;
 use Carbon\Carbon;
+use Database\Factories\BookFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,5 +25,11 @@ class Book extends Model
 
     public function getReleaseDateAttribute($value){
         return Carbon::parse($value)->format('Y-m-d');
+    }
+
+
+    protected static function newFactory()
+    {
+        return BookFactory::new();
     }
 }

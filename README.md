@@ -10,7 +10,7 @@ The `.env.example` already contains the Ice And Fire API url
 
 ## Migrations
 
-run `php artisan migrate` to create the needed table(s)
+Run `php artisan migrate` to create the needed table(s) after setting up the database with necessary configurations
 
 ## Tests & data
 Tests can be run using `php artisan test` command. All tests are written using Pest-PHP

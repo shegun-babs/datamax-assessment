@@ -15,7 +15,7 @@ Run `php artisan migrate` to create the needed table(s) after setting up the dat
 ## Tests & data
 Tests can be run using `php artisan test` command. All tests are written using Pest-PHP
 
-Run `php artisan db:seed` to create test data in the tables
+Run `php artisan db:seed` to create test data in the tables for manual api and frontend view testing
 
 ## Code References
 
